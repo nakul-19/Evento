@@ -10,8 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EventoApp">
-        <activity android:name=".common.SplashActivity"></activity>
-        <activity android:name=".login.LoginActivity">
+        <activity android:name="com.gdsc_jss.evento.ui.students.StudentActivity"></activity>
+        <activity android:name="com.gdsc_jss.evento.ui.common.SplashActivity" />
+        <activity android:name="com.gdsc_jss.evento.ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

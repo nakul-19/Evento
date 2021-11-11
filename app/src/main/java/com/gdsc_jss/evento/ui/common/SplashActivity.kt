@@ -1,9 +1,8 @@
-package com.gdsc_jss.evento.common
+package com.gdsc_jss.evento.ui.common
 
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.gdsc_jss.evento.R
 import com.gdsc_jss.evento.databinding.ActivitySplashBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

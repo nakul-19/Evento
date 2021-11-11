@@ -1,4 +1,4 @@
-package com.gdsc_jss.evento.login
+package com.gdsc_jss.evento.ui.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
