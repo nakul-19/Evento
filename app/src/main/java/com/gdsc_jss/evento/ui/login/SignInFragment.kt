@@ -19,6 +19,10 @@ class SignInFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         b = FragmentSignInBinding.inflate(layoutInflater, container, false)
+
+
+
+
         return b.root
     }
 
