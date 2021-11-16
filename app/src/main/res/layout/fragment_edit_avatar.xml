@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.login.EditAvatarFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/signUpText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/lato_bold"
+        android:text="Sign up"
+        android:paddingBottom="15dp"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avatar"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/avtar" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/displayName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Karan Verma"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_bold"
+            android:layout_below="@+id/avatar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/displayEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="karanverma9335@gmail.com"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_bold"
+            android:layout_below="@+id/displayName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/nextBtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dp"
+        android:background="@drawable/black_round_stroke"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/lato_bold"
+        android:text="Sign up"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
