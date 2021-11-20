@@ -4,7 +4,9 @@ package com.gdsc_jss.evento.ui.login
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.gdsc_jss.evento.databinding.ActivityLoginBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding

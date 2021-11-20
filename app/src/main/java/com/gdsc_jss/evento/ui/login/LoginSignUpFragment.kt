@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import com.gdsc_jss.evento.R
 import com.gdsc_jss.evento.databinding.FragmentLoginSignUpBinding
 import com.gdsc_jss.evento.databinding.FragmentSignInBinding
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
+@AndroidEntryPoint
 class LoginSignUpFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginSignUpBinding
@@ -19,6 +21,13 @@ class LoginSignUpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentLoginSignUpBinding.inflate(layoutInflater, container, false)
+
+        setClicks()
+
+        return binding.root
+    }
+
+    private fun setClicks() {
 
         binding.loginBtn.setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()?.addToBackStack(null)
@@ -30,6 +39,5 @@ class LoginSignUpFragment : Fragment() {
                 ?.replace(R.id.login_frame, SignUpFragment())?.commit()
         }
 
-        return binding.root
     }
 }

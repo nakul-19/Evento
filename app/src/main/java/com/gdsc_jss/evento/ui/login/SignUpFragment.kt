@@ -21,12 +21,16 @@ class SignUpFragment : Fragment() {
     ): View? {
         b = FragmentSignUpBinding.inflate(layoutInflater, container, false)
 
+        setClicks()
+
+        return b.root
+    }
+
+    private fun setClicks() {
         b.nextBtn.setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()?.addToBackStack(null)
                 ?.replace(R.id.login_frame, EditAvatarFragment())?.commit()
         }
-
-        return b.root
     }
 
 }

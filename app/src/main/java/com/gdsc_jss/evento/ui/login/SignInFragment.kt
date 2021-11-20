@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.gdsc_jss.evento.databinding.FragmentSignInBinding
 import com.gdsc_jss.evento.viewmodels.SignInViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SignInFragment : Fragment() {
 
     private val viewModel: SignInViewModel by activityViewModels()
@@ -19,9 +21,6 @@ class SignInFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         b = FragmentSignInBinding.inflate(layoutInflater, container, false)
-
-
-
 
         return b.root
     }
