@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import com.gdsc_jss.evento.databinding.ActivitySplashBinding
 import com.gdsc_jss.evento.ui.login.LoginActivity
+import com.gdsc_jss.evento.ui.students.StudentActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -21,7 +22,6 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         b = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(b.root)
-
 
         Handler().postDelayed(
             {
