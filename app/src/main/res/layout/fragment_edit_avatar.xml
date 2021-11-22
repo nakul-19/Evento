@@ -33,7 +33,7 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/avtar" />
+            android:src="@drawable/avatar" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/displayName"
