@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gdsc_jss.evento">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".Evento"
         android:allowBackup="true"
@@ -10,6 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EventoApp">
+
+        <meta-data android:name="CLOUDINARY_URL" android:value="cloudinary://@myCloudName"/>
+
         <activity android:name="com.gdsc_jss.evento.ui.students.StudentActivity" />
         <activity android:name="com.gdsc_jss.evento.ui.common.SplashActivity"
             android:exported="true">

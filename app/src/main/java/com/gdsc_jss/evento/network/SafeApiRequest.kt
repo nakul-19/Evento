@@ -19,14 +19,14 @@ abstract class SafeApiRequest {
             e(response.code().toString())
             e(response.message())
 
-            var msg = "Something went wrong!"
+            var msg = ""
             val error = response.errorBody()?.string()
 
             error?.let {
                 try {
-                    msg += JSONObject(it).getString("detail")
+                    msg += JSONObject(it).getString("error")
                 } catch (e: JSONException) {
-                    msg = response.message()
+                    msg = "Something went wrong!"
                 }
             }
 

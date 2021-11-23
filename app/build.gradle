@@ -87,6 +87,9 @@ dependencies {
     implementation 'com.facebook.stetho:stetho:1.5.1'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
 
+    //cloudinary
+    implementation group: 'com.cloudinary', name: 'cloudinary-android', version: '1.30.0'
+
 }
 
 kapt {
