@@ -7,8 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.gdsc_jss.evento.network.ApiException
 import com.gdsc_jss.evento.network.Resource
 import com.gdsc_jss.evento.network.models.SignInBody
-import com.gdsc_jss.evento.network.models.SignInResponse
-import com.gdsc_jss.evento.network.models.SignUpResponse
+import com.gdsc_jss.evento.network.models.User
+import com.gdsc_jss.evento.network.models.Wrapper
 import com.gdsc_jss.evento.network.repositories.LoginRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -18,8 +18,8 @@ import javax.inject.Inject
 @HiltViewModel
 class SignInViewModel @Inject constructor(private val repo: LoginRepository) : ViewModel() {
 
-    private val _signInUser: MutableLiveData<Resource<SignInResponse>> = MutableLiveData()
-    val signInUser: LiveData<Resource<SignInResponse>> = _signInUser
+    private val _signInUser: MutableLiveData<Resource<Wrapper<User>>> = MutableLiveData()
+    val signInUser: LiveData<Resource<Wrapper<User>>> = _signInUser
 
     fun signIn(signBody: SignInBody) = viewModelScope.launch {
         _signInUser.postValue(Resource.Loading())

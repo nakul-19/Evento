@@ -1,6 +1,6 @@
 package com.gdsc_jss.evento.network.models
 
-data class SignupBody(
+data class SignUpBody(
     val branch: String,
     val collegeId: String,
     val gender: String,

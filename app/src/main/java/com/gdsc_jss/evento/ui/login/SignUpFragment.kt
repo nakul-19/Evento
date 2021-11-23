@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.gdsc_jss.evento.R
 import com.gdsc_jss.evento.databinding.FragmentSignUpBinding
-import com.gdsc_jss.evento.network.models.SignupBody
+import com.gdsc_jss.evento.network.models.SignUpBody
 import com.gdsc_jss.evento.viewmodels.SignUpViewModel
 import kotlinx.android.synthetic.main.fragment_sign_up.*
 
@@ -50,7 +50,7 @@ class SignUpFragment : Fragment() {
     private fun setClicks() {
         b.nextBtn.setOnClickListener {
             if (isValid()) {
-                val signupBody = SignupBody(
+                val signupBody = SignUpBody(
                     branch = branchText.text.toString(),
                     collegeId = admissionText.text.toString(),
                     gender = genderSpinner.selectedItem.toString(),
