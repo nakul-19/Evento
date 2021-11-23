@@ -13,6 +13,7 @@ import com.gdsc_jss.evento.databinding.FragmentSignUpBinding
 import com.gdsc_jss.evento.network.models.SignUpBody
 import com.gdsc_jss.evento.viewmodels.SignUpViewModel
 import kotlinx.android.synthetic.main.fragment_sign_up.*
+import java.util.*
 
 class SignUpFragment : Fragment() {
 
@@ -32,7 +33,7 @@ class SignUpFragment : Fragment() {
     }
 
     private fun initViews() {
-        val genderList = arrayOf("Select", "Male", "Female", "Lucky Bhagat")
+        val genderList = arrayOf("Select", "Male", "Female")
         val yearList = arrayOf(1, 2, 3, 4)
         val genderAdapter =
             ArrayAdapter(
@@ -52,14 +53,15 @@ class SignUpFragment : Fragment() {
             if (isValid()) {
                 val signupBody = SignUpBody(
                     branch = branchText.text.toString(),
-                    collegeId = admissionText.text.toString(),
+                    collegeId = admissionText.text.toString().uppercase(Locale.getDefault()),
                     gender = genderSpinner.selectedItem.toString(),
                     image = "",
                     name = nameText.text.toString(),
                     password = passwordText.text.toString(),
                     section = sectionText.text.toString(),
                     year = yearSpinner.selectedItem.toString().toInt(),
-                    email = emailText.text.toString()
+                    email = emailText.text.toString(),
+                    phone = mobileText.text.toString()
                 )
                 activity?.supportFragmentManager?.beginTransaction()?.addToBackStack(null)
                     ?.replace(R.id.login_frame, EditAvatarFragment(signupBody))?.commit()

@@ -2,10 +2,7 @@ package com.gdsc_jss.evento.network
 
 import com.gdsc_jss.evento.network.models.*
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiInterface {
 
@@ -14,6 +11,7 @@ interface ApiInterface {
         const val REGISTER = "api/user"
         const val GET_USER = "api/user"
         const val GET_EVENTS = "api/user/events"
+        const val UPDATE_USER = "api/user"
     }
 
     @GET(GET_USER)
@@ -27,5 +25,11 @@ interface ApiInterface {
 
     @POST(REGISTER)
     suspend fun signUp(@Body signUpBody: SignUpBody): Response<Wrapper<Any>>
+
+    @PUT(UPDATE_USER)
+    suspend fun updateUser(
+        @Header("Authorization") token: String,
+        @Body updateUserBody: UpdateUserBody
+    ): Response<Wrapper<Any>>
 
 }

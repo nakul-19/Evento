@@ -12,5 +12,8 @@ data class UserResponse(
     val section: String,
     val tokens: List<String>,
     val updatedAt: String,
-    val year: Int
+    val year: Int,
+    val image: String?,
+    val phone: String?,
+    val email: String?
 )

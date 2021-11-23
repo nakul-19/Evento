@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.students.ProfileFragment">
+    tools:context=".ui.students.EditProfileActivity">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/profile"
@@ -13,30 +13,10 @@
         android:layout_marginVertical="12dp"
         android:layout_marginStart="24dp"
         android:fontFamily="@font/lato_bold"
-        android:text="Profile"
+        android:text="Edit Profile"
         android:textColor="@color/black"
         android:textSize="28sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminateTint="@color/yellow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="24dp"
-        android:src="@drawable/ic_logout"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
@@ -48,7 +28,7 @@
         android:scrollbars="vertical"
         android:verticalScrollbarPosition="defaultPosition"
         app:layout_constrainedHeight="true"
-        app:layout_constraintBottom_toTopOf="@+id/editBtn"
+        app:layout_constraintBottom_toTopOf="@+id/updateBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile">
@@ -68,6 +48,29 @@
                 android:layout_marginTop="36dp"
                 android:src="@drawable/avatar" />
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignEnd="@+id/avatar"
+                android:layout_alignBottom="@+id/avatar"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="25dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/avatar"
+                    android:layout_alignBottom="@id/avatar"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:src="@drawable/ic_pencil" />
+
+            </androidx.cardview.widget.CardView>
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/nameLayout"
                 android:layout_width="wrap_content"
@@ -78,19 +81,25 @@
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/nameInput"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/nameLayout"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/light_black_stroke"
-                android:fontFamily="@font/lato_regular"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="16dp"
-                android:text=""
-                android:textColor="@color/black"
-                android:textSize="15sp" />
+                app:boxStrokeColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/text_grey" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/emailLayout"
@@ -103,69 +112,57 @@
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/emailInput"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/emailLayout"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/light_black_stroke"
-                android:fontFamily="@font/lato_regular"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="16dp"
-                android:text=""
-                android:textColor="@color/black"
-                android:textSize="15sp" />
+                app:boxStrokeColor="@color/black">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/collegeIdLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/emailInput"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/lato_regular"
-                android:text="Admission Number"
-                android:textColor="@color/black"
-                android:textSize="15sp" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/text_grey" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/collegeIdInput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/collegeIdLayout"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/light_black_stroke"
-                android:fontFamily="@font/lato_regular"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="16dp"
-                android:text=""
-                android:textColor="@color/black"
-                android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/mobileLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/collegeIdInput"
+                android:layout_below="@+id/emailInput"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/lato_regular"
                 android:text="Mobile"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/mobileInput"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/mobileLayout"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/light_black_stroke"
-                android:fontFamily="@font/lato_regular"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="16dp"
-                android:text=""
-                android:textColor="@color/black"
-                android:textSize="15sp" />
+                app:boxStrokeColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mobileText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:inputType="phone"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/text_grey" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/branchLayout"
@@ -178,19 +175,24 @@
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/branchInput"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/branchLayout"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/light_black_stroke"
-                android:fontFamily="@font/lato_regular"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="16dp"
-                android:text=""
-                android:textColor="@color/black"
-                android:textSize="15sp" />
+                app:boxStrokeColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/branchText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/text_grey" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/yearLayout"
@@ -203,47 +205,53 @@
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/yearInput"
-                android:layout_width="150dp"
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/year"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/yearLayout"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/light_black_stroke"
-                android:fontFamily="@font/lato_regular"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="16dp"
-                android:text=""
-                android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:background="@drawable/drop_down_background">
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/yearSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/sectionLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/yearInput"
+                android:layout_below="@+id/year"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/lato_regular"
                 android:text="Section"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
-
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/sectionInput"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/sectionLayout"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/light_black_stroke"
-                android:fontFamily="@font/lato_regular"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="16dp"
-                android:text=""
-                android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:paddingBottom="5dp"
+                app:boxStrokeColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/sectionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/text_grey" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
         </RelativeLayout>
 
@@ -251,15 +259,15 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/editBtn"
+        android:id="@+id/updateBtn"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="42dp"
         android:background="@drawable/black_round_stroke"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/lato_bold"
-        android:text="Edit"
+        android:text="Update"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

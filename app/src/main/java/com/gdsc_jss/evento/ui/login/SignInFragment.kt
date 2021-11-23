@@ -16,6 +16,7 @@ import com.gdsc_jss.evento.util.handleErrorsWithSnackbar
 import com.gdsc_jss.evento.viewmodels.SignInViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
+import java.util.*
 
 @AndroidEntryPoint
 class SignInFragment : Fragment() {
@@ -39,7 +40,7 @@ class SignInFragment : Fragment() {
         b.loginBtn.setOnClickListener {
             if (isValid()) {
                 val signInBody = SignInBody(
-                    collegeId = b.emailText.text.toString(),
+                    collegeId = b.emailText.text.toString().uppercase(Locale.getDefault()),
                     password = b.passwordText.text.toString()
                 )
                 Timber.d(signInBody.toString())

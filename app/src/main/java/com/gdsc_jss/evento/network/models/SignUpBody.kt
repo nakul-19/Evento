@@ -9,5 +9,6 @@ data class SignUpBody(
     val password: String,
     val section: String,
     val year: Int,
-    val email : String
+    val email : String,
+    val phone : String
 )
