@@ -60,6 +60,7 @@ class SignInFragment : Fragment() {
                     b.loginBtn.text = "Login"
                     b.loginBtn.isEnabled = true
                     startActivity(Intent(requireActivity(), StudentActivity::class.java))
+                    activity?.finish()
                 }
                 is Resource.Loading -> {
                     b.loginBtn.text = "Loading.."
