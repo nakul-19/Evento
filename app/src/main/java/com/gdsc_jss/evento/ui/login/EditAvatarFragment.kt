@@ -5,12 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.gdsc_jss.evento.R
 import com.gdsc_jss.evento.databinding.FragmentEditAvatarBinding
-import com.gdsc_jss.evento.databinding.FragmentLoginSignUpBinding
+import com.gdsc_jss.evento.network.models.SignupBody
+import timber.log.Timber
 
 
-class EditAvatarFragment : Fragment() {
+class EditAvatarFragment(val signupBody: SignupBody) : Fragment() {
 
     private lateinit var binding: FragmentEditAvatarBinding
 
@@ -20,7 +20,15 @@ class EditAvatarFragment : Fragment() {
     ): View? {
         binding = FragmentEditAvatarBinding.inflate(layoutInflater, container, false)
 
+        initViews()
+
+        Timber.d(signupBody.toString())
 
         return binding.root
+    }
+
+    private fun initViews() {
+        binding.displayName.text = signupBody.name.toString()
+        binding.displayEmail.text = signupBody.email.toString()
     }
 }

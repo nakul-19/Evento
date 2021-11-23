@@ -35,11 +35,10 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/emailText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato_regular"
-                android:text="Email"
+                android:text="Username"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
@@ -48,9 +47,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                app:boxStrokeColor="@color/black">
+                app:boxStrokeColor="@color/black"
+                app:helperText="Use admission number">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -69,7 +70,6 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/passwordText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato_regular"
@@ -86,6 +86,7 @@
                 app:endIconMode="password_toggle">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -116,6 +117,7 @@
                 android:textSize="15sp" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/signUpBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -128,6 +130,7 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/loginBtn"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/signUpLayout"
