@@ -5,7 +5,9 @@ import android.content.SharedPreferences
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.gdsc_jss.evento.R
 import com.gdsc_jss.evento.network.ApiInterface
+import com.gdsc_jss.evento.network.repositories.EventRepository
 import com.gdsc_jss.evento.network.repositories.LoginRepository
+import com.gdsc_jss.evento.network.repositories.UserRepository
 import com.gdsc_jss.evento.util.baseUrl
 import dagger.Module
 import dagger.Provides
@@ -49,5 +51,14 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideLoginRepository(api: ApiInterface): LoginRepository= LoginRepository(api)
+    fun provideLoginRepository(api: ApiInterface): LoginRepository = LoginRepository(api)
+
+    @Provides
+    @Singleton
+    fun provideEventRepository(api: ApiInterface): EventRepository = EventRepository(api)
+
+    @Provides
+    @Singleton
+    fun provideUserRepository(api: ApiInterface, sp: SharedPreferences): UserRepository = UserRepository(api,sp)
+
 }
