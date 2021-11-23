@@ -1,6 +1,7 @@
 package com.gdsc_jss.evento
 
 import android.app.Application
+import com.cloudinary.android.MediaManager
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
@@ -9,8 +10,15 @@ class Evento : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        if (BuildConfig.DEBUG) {
 
+        val config: HashMap<String, String> = HashMap()
+        config["cloud_name"] = "abhistrike"
+        config["api_key"] = "152295545861796"
+        config["api_secret"] = "tbrjkMsTA2HEr9PBnRMk7MXM-f8"
+        MediaManager.init(this, config);
+
+
+        if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
     }
