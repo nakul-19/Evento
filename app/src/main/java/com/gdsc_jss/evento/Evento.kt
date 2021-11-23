@@ -2,6 +2,7 @@ package com.gdsc_jss.evento
 
 import android.app.Application
 import com.cloudinary.android.MediaManager
+import com.gdsc_jss.evento.ui.login.LoginActivity
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 

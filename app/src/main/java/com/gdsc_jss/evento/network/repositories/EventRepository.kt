@@ -7,6 +7,6 @@ import javax.inject.Inject
 class EventRepository @Inject constructor(private val networkApi: ApiInterface) :
     SafeApiRequest() {
 
-
+    suspend fun getAllEvents() = apiRequest { networkApi.getEvents() }
 
 }
