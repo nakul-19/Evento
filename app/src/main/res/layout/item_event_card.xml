@@ -16,6 +16,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:id="@+id/banner"
             android:src="@color/grey_bf"
             app:layout_constraintTop_toTopOf="parent" />
 
