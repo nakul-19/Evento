@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.gdsc_jss.evento.databinding.FragmentEditAvatarBinding
-import com.gdsc_jss.evento.network.models.SignupBody
+import com.gdsc_jss.evento.network.models.SignUpBody
 import timber.log.Timber
 
 
-class EditAvatarFragment(val signupBody: SignupBody) : Fragment() {
+class EditAvatarFragment(val signUpBody: SignUpBody) : Fragment() {
 
     private lateinit var binding: FragmentEditAvatarBinding
 
@@ -22,13 +22,13 @@ class EditAvatarFragment(val signupBody: SignupBody) : Fragment() {
 
         initViews()
 
-        Timber.d(signupBody.toString())
+        Timber.d(signUpBody.toString())
 
         return binding.root
     }
 
     private fun initViews() {
-        binding.displayName.text = signupBody.name.toString()
-        binding.displayEmail.text = signupBody.email.toString()
+        binding.displayName.text = signUpBody.name.toString()
+        binding.displayEmail.text = signUpBody.email.toString()
     }
 }
