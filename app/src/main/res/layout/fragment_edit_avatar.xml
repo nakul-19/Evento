@@ -39,13 +39,13 @@
             android:id="@+id/displayName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Karan Verma"
-            android:textSize="24sp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/lato_bold"
             android:layout_below="@+id/avatar"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/lato_bold"
+            android:text="Karan Verma"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/displayEmail"
