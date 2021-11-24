@@ -67,12 +67,12 @@ class UserViewModel @Inject constructor(
     fun getUserEvents() = viewModelScope.launch {
         mEvents.postValue(Resource.Loading())
         try {
-            if ((UserViewModel.user.value!! as AuthResource.Authenticated).user.registeredIn.isEmpty()){
+            if ((user.value!! as AuthResource.Authenticated).user.registeredIn.isEmpty()){
                 mEvents.postValue(Resource.Success(arrayListOf()))
                 return@launch
             }
             val result =
-                eventRepo.getEventsById((UserViewModel.user.value!! as AuthResource.Authenticated).user.registeredIn)
+                eventRepo.getEventsById((user.value!! as AuthResource.Authenticated).user.registeredIn)
             mEvents.postValue(Resource.Success(result.data))
         } catch (e : Exception) {
             Timber.e(e.message.toString())

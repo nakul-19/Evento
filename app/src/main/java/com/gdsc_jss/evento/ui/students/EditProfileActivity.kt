@@ -2,10 +2,10 @@ package com.gdsc_jss.evento.ui.students
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.cloudinary.android.MediaManager
 import com.cloudinary.android.callback.ErrorInfo
@@ -169,12 +169,16 @@ class EditProfileActivity : AppCompatActivity() {
         MediaManager.get().upload(filepath).callback(object :
             UploadCallback {
             override fun onSuccess(requestId: String?, resultData: MutableMap<Any?, Any?>?) {
-                handleErrorsWithSnackbar(binding.root, "Profile image uploaded successful")
+                binding.updateBtn.apply {
+                    text = "Update"
+                    isEnabled = true
+                }
                 displayImage = (resultData?.get("url") as String?).toString()
                 Timber.d(resultData.toString())
             }
 
             override fun onProgress(requestId: String?, bytes: Long, totalBytes: Long) {
+
             }
 
             override fun onReschedule(requestId: String?, error: ErrorInfo?) {
@@ -182,10 +186,23 @@ class EditProfileActivity : AppCompatActivity() {
 
             override fun onError(requestId: String?, error: ErrorInfo?) {
                 handleErrorsWithSnackbar(binding.root, "$error")
+                binding.updateBtn.apply {
+                    text = "Update"
+                    isEnabled = true
+                }
+            }
+            init {
+                binding.updateBtn.apply {
+                    text = "Uploading image..."
+                    isEnabled = false
+                }
             }
 
             override fun onStart(requestId: String?) {
-                handleErrorsWithSnackbar(binding.root, "Uploading...")
+                binding.updateBtn.apply {
+                    text = "Uploading image..."
+                    isEnabled = false
+                }
             }
         }).dispatch()
     }

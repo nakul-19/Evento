@@ -44,6 +44,7 @@ class RegisteredFragment : Fragment() {
 
     @DelicateCoroutinesApi
     private fun setView() {
+        binding.registeredEventsRefresh.isRefreshing=true
         binding.registeredEventsList.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = EventsAdapter(listOfEvents)

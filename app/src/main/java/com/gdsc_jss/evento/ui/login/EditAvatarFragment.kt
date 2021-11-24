@@ -29,7 +29,7 @@ class EditAvatarFragment(var signUpBody: SignUpBody) : Fragment() {
 
     private val viewModel: SignUpViewModel by activityViewModels()
     private lateinit var binding: FragmentEditAvatarBinding
-    var imgpath: String? = null
+    private var imgpath: String? = null
     var displayImage: String? = null
 
     override fun onCreateView(
@@ -133,8 +133,11 @@ class EditAvatarFragment(var signUpBody: SignUpBody) : Fragment() {
         MediaManager.get().upload(filepath).callback(object :
             UploadCallback {
             override fun onSuccess(requestId: String?, resultData: MutableMap<Any?, Any?>?) {
-                handleErrorsWithSnackbar(binding.root, "Uploaded successful")
-                displayImage = resultData?.get("url") as String?
+                binding.registerBtn.apply {
+                    text = "Sign up"
+                    isEnabled = true
+                }
+                displayImage = (resultData?.get("url") as String?).toString()
                 Timber.d(resultData.toString())
             }
 
@@ -146,10 +149,23 @@ class EditAvatarFragment(var signUpBody: SignUpBody) : Fragment() {
 
             override fun onError(requestId: String?, error: ErrorInfo?) {
                 handleErrorsWithSnackbar(binding.root, "$error")
+                binding.registerBtn.apply {
+                    text = "Sign up"
+                    isEnabled = true
+                }
+            }
+            init {
+                binding.registerBtn.apply {
+                    text = "Uploading image..."
+                    isEnabled = false
+                }
             }
 
             override fun onStart(requestId: String?) {
-                handleErrorsWithSnackbar(binding.root, "Uploading...")
+                binding.registerBtn.apply {
+                    text = "Uploading image..."
+                    isEnabled = false
+                }
             }
         }).dispatch()
     }

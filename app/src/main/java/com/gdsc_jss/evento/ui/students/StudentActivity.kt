@@ -77,4 +77,14 @@ class StudentActivity : AppCompatActivity() {
         }
 
     }
+
+    override fun onBackPressed() {
+        val fragment =
+            supportFragmentManager.findFragmentById(R.id.student_frame)
+
+        if (fragment !is UpcomingEventsFragment) {
+            b.bottomBar.selectedItemId = R.id.student_upcoming
+        } else
+            super.onBackPressed()
+    }
 }
