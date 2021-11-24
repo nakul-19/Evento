@@ -22,9 +22,24 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/registered_events_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/registered_events_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/illustration"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="100dp"
+            android:src="@drawable/no_data"
+            android:visibility="gone"/>
+        </LinearLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>

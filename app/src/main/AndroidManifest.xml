@@ -12,11 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EventoApp">
+        <activity android:name=".ui.students.EventActivity"></activity>
 
-        <meta-data android:name="CLOUDINARY_URL" android:value="cloudinary://@myCloudName"/>
+        <meta-data
+            android:name="CLOUDINARY_URL"
+            android:value="cloudinary://@myCloudName" />
 
-        <activity android:name="com.gdsc_jss.evento.ui.students.StudentActivity" />
-        <activity android:name="com.gdsc_jss.evento.ui.common.SplashActivity"
+        <activity android:name=".ui.students.StudentActivity" />
+        <activity
+            android:name=".ui.common.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.gdsc_jss.evento.ui.login.LoginActivity"/>
+        <activity android:name=".ui.login.LoginActivity" />
     </application>
 
 </manifest>

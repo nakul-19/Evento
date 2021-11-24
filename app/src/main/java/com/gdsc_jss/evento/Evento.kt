@@ -2,6 +2,8 @@ package com.gdsc_jss.evento
 
 import android.app.Application
 import com.cloudinary.android.MediaManager
+import com.facebook.stetho.Stetho
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.gdsc_jss.evento.ui.login.LoginActivity
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
@@ -21,6 +23,7 @@ class Evento : Application() {
 
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
+            Stetho.initializeWithDefaults(this)
         }
     }
 }

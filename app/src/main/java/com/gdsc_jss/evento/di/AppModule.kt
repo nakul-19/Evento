@@ -2,6 +2,7 @@ package com.gdsc_jss.evento.di
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.facebook.stetho.Stetho
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.gdsc_jss.evento.R
 import com.gdsc_jss.evento.network.ApiInterface
@@ -32,7 +33,8 @@ object AppModule {
     @Provides
     @Singleton
     fun provideRetrofitClient(): Retrofit {
-        val client = OkHttpClient.Builder().connectTimeout(0, TimeUnit.SECONDS).readTimeout(
+        val client = OkHttpClient.Builder()
+            .addNetworkInterceptor(StethoInterceptor()).connectTimeout(0, TimeUnit.SECONDS).readTimeout(
             0,
             TimeUnit.SECONDS
         ).writeTimeout(0, TimeUnit.SECONDS).addNetworkInterceptor(StethoInterceptor())
@@ -55,7 +57,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideEventRepository(api: ApiInterface): EventRepository = EventRepository(api)
+    fun provideEventRepository(api: ApiInterface,sp:SharedPreferences): EventRepository = EventRepository(api,sp)
 
     @Provides
     @Singleton

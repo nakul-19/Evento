@@ -3,6 +3,7 @@ package com.gdsc_jss.evento.network.models
 data class EventResponse(
     val _id: String,
     val contactDetails: ContactDetails,
+    val cta: String,
     val dateAndTime: String,
     val description: String,
     val image: String,
