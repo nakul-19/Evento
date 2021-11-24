@@ -16,7 +16,7 @@
         <activity
             android:name=".ui.students.EditProfileActivity"
             android:exported="false" />
-
+        <activity android:name=".ui.students.EventActivity"></activity>
         <meta-data
             android:name="CLOUDINARY_URL"
             android:value="cloudinary://@myCloudName" />

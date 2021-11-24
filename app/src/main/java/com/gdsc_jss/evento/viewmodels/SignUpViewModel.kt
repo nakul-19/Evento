@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gdsc_jss.evento.network.ApiException
 import com.gdsc_jss.evento.network.Resource
-import com.gdsc_jss.evento.network.models.SignInBody
 import com.gdsc_jss.evento.network.models.SignUpBody
 import com.gdsc_jss.evento.network.models.Wrapper
 import com.gdsc_jss.evento.network.repositories.LoginRepository

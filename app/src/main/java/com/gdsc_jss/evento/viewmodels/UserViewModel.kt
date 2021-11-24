@@ -8,6 +8,12 @@ import com.gdsc_jss.evento.network.ApiException
 import com.gdsc_jss.evento.network.AuthResource
 import com.gdsc_jss.evento.network.Resource
 import com.gdsc_jss.evento.network.models.UpdateUserBody
+import androidx.lifecycle.viewModelScope
+import com.gdsc_jss.evento.network.ApiException
+import com.gdsc_jss.evento.network.AuthResource
+import com.gdsc_jss.evento.network.Resource
+import com.gdsc_jss.evento.network.models.EventResponse
+import com.gdsc_jss.evento.network.repositories.EventRepository
 import com.gdsc_jss.evento.network.repositories.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -18,10 +24,13 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class UserViewModel @Inject constructor(private val repo: UserRepository) : ViewModel() {
+class UserViewModel @Inject constructor(
+    private val repo: UserRepository,
+    private val eventRepo: EventRepository
+) : ViewModel() {
 
     companion object {
-        private val mUser = MutableLiveData<AuthResource>(AuthResource.Authenticating)
+        private val mUser = MutableLiveData<AuthResource>()
         val user: LiveData<AuthResource> = mUser
 
         fun authenticating() {
@@ -54,6 +63,30 @@ class UserViewModel @Inject constructor(private val repo: UserRepository) : View
             mUser.value = AuthResource.UnAuthenticated
     }
 
+
+    private val mEvents = MutableLiveData<Resource<ArrayList<EventResponse>>>()
+    val userEvents: LiveData<Resource<ArrayList<EventResponse>>> = mEvents
+
+    fun getUserEvents() = viewModelScope.launch {
+        mEvents.postValue(Resource.Loading())
+        try {
+            if ((UserViewModel.user.value!! as AuthResource.Authenticated).user.registeredIn.isEmpty()){
+                mEvents.postValue(Resource.Success(arrayListOf()))
+                return@launch
+            }
+            val result =
+                eventRepo.getEventsById((UserViewModel.user.value!! as AuthResource.Authenticated).user.registeredIn)
+            mEvents.postValue(Resource.Success(result.data))
+        } catch (e : Exception) {
+            Timber.e(e.message.toString())
+            if (e is ApiException) {
+                mEvents.postValue(Resource.Error(e.msg))
+            } else {
+                mEvents.postValue(Resource.Error("Something went wrong!"))
+            }
+        }
+    }
+    
     @DelicateCoroutinesApi
     fun isLoggedIn(): Boolean {
         return if (repo.isLoggedIn()) {
@@ -76,5 +109,4 @@ class UserViewModel @Inject constructor(private val repo: UserRepository) : View
             }
         }
     }
-
 }

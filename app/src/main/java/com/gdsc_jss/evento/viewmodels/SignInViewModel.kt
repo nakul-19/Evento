@@ -48,6 +48,7 @@ class SignInViewModel @Inject constructor(
     private fun storeResult(result: SignInResponse) {
         Timber.d(result.token)
         sp.edit().putString(token, "Bearer " + result.token).apply()
+
     }
 
 }
