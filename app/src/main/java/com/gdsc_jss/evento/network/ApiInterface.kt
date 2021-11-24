@@ -11,6 +11,7 @@ interface ApiInterface {
         const val REGISTER = "api/user"
         const val GET_USER = "api/user"
         const val GET_EVENTS = "api/user/events"
+        const val UPDATE_USER = "api/user"
         const val REGISTER_FOR_EVENT = "api/registration/{id}"
     }
 
@@ -34,5 +35,11 @@ interface ApiInterface {
 
     @POST(REGISTER)
     suspend fun signUp(@Body signUpBody: SignUpBody): Response<Wrapper<Any>>
+
+    @PUT(UPDATE_USER)
+    suspend fun updateUser(
+        @Header("Authorization") token: String,
+        @Body updateUserBody: UpdateUserBody
+    ): Response<Wrapper<Any>>
 
 }

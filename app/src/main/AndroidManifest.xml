@@ -11,9 +11,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.EventoApp">
+        android:theme="@style/Theme.EventoApp"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.students.EditProfileActivity"
+            android:exported="false" />
         <activity android:name=".ui.students.EventActivity"></activity>
-
         <meta-data
             android:name="CLOUDINARY_URL"
             android:value="cloudinary://@myCloudName" />

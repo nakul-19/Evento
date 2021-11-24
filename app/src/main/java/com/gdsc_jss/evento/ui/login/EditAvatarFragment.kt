@@ -29,7 +29,6 @@ class EditAvatarFragment(var signUpBody: SignUpBody) : Fragment() {
 
     private val viewModel: SignUpViewModel by activityViewModels()
     private lateinit var binding: FragmentEditAvatarBinding
-    var config: HashMap<String, String> = HashMap()
     var imgpath: String? = null
     var displayImage: String? = null
 
@@ -86,9 +85,11 @@ class EditAvatarFragment(var signUpBody: SignUpBody) : Fragment() {
         }
 
         binding.registerBtn.setOnClickListener {
-            displayImage.let {
+            if (displayImage != null) {
                 signUpBody = signUpBody.copy(image = displayImage!!)
+                Timber.d(signUpBody.toString())
             }
+            Timber.d(signUpBody.toString())
             viewModel.signUp(signUpBody)
         }
 

@@ -13,10 +13,10 @@ class EventRepository @Inject constructor(
     SafeApiRequest() {
 
     suspend fun getAllEvents() = apiRequest { networkApi.getEvents() }
-
+    
     suspend fun getEventsById(list: List<String>) =
         apiRequest { networkApi.getMultipleEventsById(list) }
-
+        
     suspend fun registerForEvent(id: String) = apiRequest {
         networkApi.registration(sp.getString(token, "").orEmpty(), id)
     }

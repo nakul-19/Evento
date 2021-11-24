@@ -42,6 +42,17 @@ class EventsAdapter(val list: ArrayList<EventResponse>) : RecyclerView.Adapter<E
         holder.binding.root.setOnClickListener{
             EventActivity.start(it.context,list[position])
         }
+
+        holder.binding.apply {
+            name.text = list[position].name
+            description.text = list[position].description
+            societyName.text = list[position].society.name
+            Glide.with(root).load(list[position].image).into(banner)
+            Glide.with(root).load(list[position].society.image).into(societyDp)
+            date.text = list[position].dateAndTime.toDate()?.formatTo("dd MMMM', 'YYYY")
+            time.text = list[position].dateAndTime.toDate()?.formatTo("hh:mm a")
+        }
+
     }
 
     override fun getItemCount(): Int = list.size

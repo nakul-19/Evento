@@ -24,6 +24,7 @@ class RegisteredFragment : Fragment() {
     private val listOfEvents = arrayListOf<EventResponse>()
     private val viewModel: UserViewModel by activityViewModels()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

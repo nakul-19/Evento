@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gdsc_jss.evento.network.ApiException
+import com.gdsc_jss.evento.network.AuthResource
 import com.gdsc_jss.evento.network.Resource
 import com.gdsc_jss.evento.network.models.SignInBody
 import com.gdsc_jss.evento.network.models.SignInResponse
@@ -32,6 +33,7 @@ class SignInViewModel @Inject constructor(
             val result = repo.signIn(signBody)
             Timber.d(result.toString())
             storeResult(result.data)
+            UserViewModel.authenticating()
             _signInUser.postValue(Resource.Success(result))
         } catch (e: Exception) {
             Timber.d(e.message.toString())
@@ -45,7 +47,8 @@ class SignInViewModel @Inject constructor(
 
     private fun storeResult(result: SignInResponse) {
         Timber.d(result.token)
-        sp.edit().putString(token,"Bearer "+result.token).apply()
+        sp.edit().putString(token, "Bearer " + result.token).apply()
+
     }
 
 }
