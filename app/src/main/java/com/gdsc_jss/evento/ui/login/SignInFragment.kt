@@ -40,7 +40,7 @@ class SignInFragment : Fragment() {
         b.loginBtn.setOnClickListener {
             if (isValid()) {
                 val signInBody = SignInBody(
-                    collegeId = b.emailText.text.toString().uppercase(Locale.getDefault()),
+                    collegeId = b.emailText.text.toString().toUpperCase(Locale.getDefault()),
                     password = b.passwordText.text.toString()
                 )
                 Timber.d(signInBody.toString())

@@ -11,6 +11,7 @@ import com.gdsc_jss.evento.ui.common.UpcomingEventsFragment
 import com.gdsc_jss.evento.ui.login.LoginActivity
 import com.gdsc_jss.evento.viewmodels.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.DelicateCoroutinesApi
 
 @AndroidEntryPoint
 class StudentActivity : AppCompatActivity() {
@@ -18,6 +19,7 @@ class StudentActivity : AppCompatActivity() {
     private lateinit var b: ActivityStudentBinding
     private val viewModel: UserViewModel by viewModels()
 
+    @DelicateCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         b = ActivityStudentBinding.inflate(layoutInflater)
@@ -28,6 +30,7 @@ class StudentActivity : AppCompatActivity() {
         setBottomBar()
     }
 
+    @DelicateCoroutinesApi
     private fun observeAuth() {
         UserViewModel.user.observe(this) {
             when (it) {
@@ -40,6 +43,8 @@ class StudentActivity : AppCompatActivity() {
                 }
             }
         }
+        if (UserViewModel.user.value !is AuthResource.Authenticated)
+            viewModel.getUser()
     }
 
     private fun setBottomBar() {

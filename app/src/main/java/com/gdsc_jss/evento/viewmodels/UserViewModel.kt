@@ -9,9 +9,6 @@ import com.gdsc_jss.evento.network.AuthResource
 import com.gdsc_jss.evento.network.Resource
 import com.gdsc_jss.evento.network.models.UpdateUserBody
 import androidx.lifecycle.viewModelScope
-import com.gdsc_jss.evento.network.ApiException
-import com.gdsc_jss.evento.network.AuthResource
-import com.gdsc_jss.evento.network.Resource
 import com.gdsc_jss.evento.network.models.EventResponse
 import com.gdsc_jss.evento.network.repositories.EventRepository
 import com.gdsc_jss.evento.network.repositories.UserRepository

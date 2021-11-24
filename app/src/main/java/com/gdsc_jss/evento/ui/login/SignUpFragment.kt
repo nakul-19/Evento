@@ -53,7 +53,7 @@ class SignUpFragment : Fragment() {
             if (isValid()) {
                 val signupBody = SignUpBody(
                     branch = branchText.text.toString(),
-                    collegeId = admissionText.text.toString().uppercase(Locale.getDefault()),
+                    collegeId = admissionText.text.toString().toUpperCase(Locale.getDefault()),
                     gender = genderSpinner.selectedItem.toString(),
                     image = "",
                     name = nameText.text.toString(),
