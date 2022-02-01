@@ -1,42 +1,46 @@
-# EventO
+# 😎 EventO
 <div align="center">
 
-
-![Frame 109 (1)](https://user-images.githubusercontent.com/55995914/151855843-ef758b5b-7946-40c9-ab5b-fe941b0910d1.svg)
-
+<img src="https://user-images.githubusercontent.com/57036954/152037041-60cfcc82-5d27-440e-b120-878c0bb437bc.svg" height="450">
 
 </div>
 
-## 🛠 Tech Used (Android)
+## 🎯 Problem it solves!
+- Removes the long distance between people conducting events and students interested in it.
+- One-stop platform to see all the events you were excited about.
+- Simplifies registration process to a button click.
+- Removes required paper work for attendees' data.
+
+## 🛠 Tech Used
 - Android
 - Kotlin
+- MVVM Architecture
 - Retrofit
+- Stetho
+- Timber
 - Live Data 
+- ViewModel
 - Hilt-Dagger
 - Coroutines
 - Glide
 - Pagination
-- MVVM
+- [Image Picker](https://github.com/Dhaval2404/ImagePicker)
 
-
-## Developers:
-
-| S.No. | Name | Role | GitHub Username:octocat: |
-| --------------- | --------------- | --------------- | --------------- |
-| 1. | Nakul | Android Development | [@nakul-19](https://github.com/nakul-19) |
-| 2. | Karan | Android Development| [@KaranVerma2000](https://github.com/KaranVerma2000)  |
-
-
-## Maintainers ✨
-
-<table>
+## ✨ Developers
+<table >
   <tbody><tr>
-    <td align="center"><a href="https://github.com/nakul-19"><img alt="" src="https://avatars.githubusercontent.com/nakul-19" width="100px;"><br><sub><b>Nakul </b></sub></a><br><a href="https://github.com/nakul-19/Evento/commits/master" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/KaranVerma2000"><img alt="" src="https://avatars.githubusercontent.com/KaranVerma2000" width="100px;"><br><sub><b>Karan</b></sub></a><br><a href="https://github.com/nakul-19/Evento/commits/master" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/nakul-19"><img alt="" src="https://avatars.githubusercontent.com/nakul-19" width="100px;"><br><sub><b>  Nakul  </b></sub></a><br></td>
+    <td align="center"><a href="https://github.com/KaranVerma2000"><img alt="" src="https://avatars.githubusercontent.com/KaranVerma2000" width="100px;"><br><sub><b>  Karan  </b> </sub></a><br></td>
+  </tr></tbody>
+</table>
 
-  </tr>
-</tbody></table>
+### 🤩 Liked the project?? Star ⭐ the Repo
 
-[![Uses Git](https://forthebadge.com/images/badges/uses-git.svg)](https://github.com/nakul-19/Evento) 
-[![ForTheBadge ANDROID](https://forthebadge.com/images/badges/built-for-android.svg)](https://github.com/nakul-19/Evento)
-[![Built with love](https://forthebadge.com/images/badges/built-with-love.svg)](https://github.com/nakul-19/Evento) [![Built By Developers](https://forthebadge.com/images/badges/built-by-developers.svg)](https://github.com/nakul-19/Evento) 
+<br>
+
+![ForTheBadge ANDROID](https://forthebadge.com/images/badges/built-for-android.svg)
+![Kotlin](https://img.shields.io/badge/kotlin-%230095D5.svg?&style=for-the-badge&logo=kotlin&logoColor=white)
+![Uses Git](https://forthebadge.com/images/badges/uses-git.svg)
+![Git](https://img.shields.io/badge/git%20-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white)
+![Github](https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)
+![Built with love](https://forthebadge.com/images/badges/built-with-love.svg) 
