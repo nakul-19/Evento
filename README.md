@@ -23,7 +23,6 @@
 - Hilt-Dagger
 - Coroutines
 - Glide
-- Pagination
 - [Image Picker](https://github.com/Dhaval2404/ImagePicker)
 
 ## ✨ Developers
